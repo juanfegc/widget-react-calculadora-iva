@@ -6,9 +6,9 @@ import { Input } from './components/Input'
 import { Label } from './components/Label'
 
 const App = () => {
-  const [precioConIVA, setPrecioConIVA] = useState(0)
+  const [precioConIVA, setPrecioConIVA] = useState('')
   const [iva, setIVA] = useState('10')
-  const [precioSinIVA, setPrecioSinIVA] = useState(0)
+  const [precioSinIVA, setPrecioSinIVA] = useState('')
 
   const calcularPVP = num => {
     const pvp = iva === '10' ? (num / 1.1).toFixed(2) : (num / 1.21).toFixed(2)
@@ -32,8 +32,14 @@ const App = () => {
 
   const handleChangeSelect = event => {
     setIVA(event.target.value)
-    setPrecioConIVA(0)
-    setPrecioSinIVA(0)
+    setPrecioConIVA('')
+    setPrecioSinIVA('')
+  }
+
+  const handleFocusInput = event => {
+    //console.log({event})
+    //console.log(event.target.name)
+    event.target.name === 'CONIVA' ? setPrecioConIVA('') : setPrecioSinIVA('')
   }
 
   return (
@@ -48,12 +54,16 @@ const App = () => {
         type='number'
         value={precioConIVA}
         onChange={handlePrecioConIvaChange}
+        onFocus={handleFocusInput}
+        name='CONIVA'
       />
       <Label>Precio sin IVA:</Label>
       <Input
         type='number'
         value={precioSinIVA}
         onChange={handlePrecioSinIvaChange}
+        onFocus={handleFocusInput}
+        name='SINIVA'
       />
     </div>
   )
