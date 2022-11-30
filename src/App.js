@@ -4,6 +4,7 @@ import React from 'react'
 import { Select } from './components/Select'
 import { Input } from './components/Input'
 import { Label } from './components/Label'
+import logo from './calculator.png'
 
 const App = () => {
   const [precioConIVA, setPrecioConIVA] = useState('')
@@ -43,29 +44,35 @@ const App = () => {
   }
 
   return (
-    <div className='App'>
-      <Label>IVA:</Label>
-      <Select value={iva} onChange={handleChangeSelect}>
-        <option value='10'>10%</option>
-        <option value='21'>21%</option>
-      </Select>
-      <Label>Precio con IVA:</Label>
-      <Input
-        type='number'
-        value={precioConIVA}
-        onChange={handlePrecioConIvaChange}
-        onFocus={handleFocusInput}
-        name='CONIVA'
-      />
-      <Label>Precio sin IVA:</Label>
-      <Input
-        type='number'
-        value={precioSinIVA}
-        onChange={handlePrecioSinIvaChange}
-        onFocus={handleFocusInput}
-        name='SINIVA'
-      />
-    </div>
+    <>
+      <div className='App'>
+        <Label>IVA:</Label>
+        <Select value={iva} onChange={handleChangeSelect}>
+          <option value='10'>10%</option>
+          <option value='21'>21%</option>
+        </Select>
+        <Label>Precio con IVA:</Label>
+        <Input
+          type='number'
+          value={precioConIVA}
+          onChange={handlePrecioConIvaChange}
+          onFocus={handleFocusInput}
+          name='CONIVA'
+        />
+        <Label>Precio sin IVA:</Label>
+        <Input
+          type='number'
+          value={precioSinIVA}
+          onChange={handlePrecioSinIvaChange}
+          onFocus={handleFocusInput}
+          name='SINIVA'
+        />
+      </div>
+
+      <div className='App'>
+        <img src={logo} className='App-logo' alt='logo' />
+      </div>
+    </>
   )
 }
 
