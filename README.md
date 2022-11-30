@@ -1,3 +1,32 @@
+# Integrar widget creado con React en una web en produccion
+Instalamos :package: [parcel](https://parceljs.org/) como dependencia de desarrollo para poder hacer build de nuestro widget facilmente.
+```
+npm install -D parcel
+```
+Usaremos Parcel en lugar de la configuracion de webpack por defecto que usa create-react-app a la hora de hacer un build para obtener un solo archivo js con todo lo necesario, mas facil de integrar como widget.
+
+Creamos nuestro widget con Parcel añadiendo un nuevo script al package.json donde le indicamos que lo construya en la carpeta /deploy:
+```javascript
+"widget": "parcel build src/index.js --no-source-maps --dist-dir deploy"
+```
+
+Integramos el widget en nuestra web en produccion asi:
+```html
+<script defer src="./app.js"></script>
+<div id="root"></div>
+```
+
+Podemos personalizar el id de enganche de nuestra web `<div id="root"></div>` cambiandolo también en nuestro index.js:
+```javascript
+ReactDOM.render(
+  <React.StrictMode>
+    <AppInfoNutrition />
+  </React.StrictMode>,
+  document.getElementById('info_calculadora')
+)
+```
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
