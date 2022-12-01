@@ -46,14 +46,16 @@ const App = () => {
   return (
     <div>
       <div className='container'>
-        <img src={logo} className='App-logo' alt='logo' />
+        <div className='box'>
+          <img src={logo} className='App-logo' alt='logo' />
+        </div>
+
         <div className='box'>
           <Label>IVA:</Label>
-
           <Label>Precio con IVA:</Label>
-
           <Label>Precio sin IVA:</Label>
         </div>
+
         <div className='box'>
           <Select value={iva} onChange={handleChangeSelect}>
             <option value='10'>10%</option>
