@@ -1,6 +1,18 @@
 import { useState } from 'react'
 import React from 'react'
-import { Container, Row, Col, Input, Label } from 'reactstrap'
+import {
+  Container,
+  Row,
+  Col,
+  Input,
+  Label,
+  Card,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  CardText,
+  CardLink,
+} from 'reactstrap'
 import logo from './calculator.png'
 
 const App = () => {
@@ -42,11 +54,20 @@ const App = () => {
 
   return (
     <Container>
-      <Row>
-        <Col>
-          <img src={logo} className='App-logo' alt='logo' />
-        </Col>
-        <Col>
+      <Card
+        style={{
+          width: '20rem',
+        }}
+      >
+        <CardBody>
+          <CardTitle tag='h5'>Calcular IVA</CardTitle>
+          <CardSubtitle className='mb-2 text-muted' tag='h6'>
+            bpxlabs
+          </CardSubtitle>
+        </CardBody>
+
+        <img src={logo} alt='Card cap' />
+        <CardBody>
           <Row>
             <Col>
               <Label>IVA:</Label>
@@ -88,8 +109,8 @@ const App = () => {
               />
             </Col>
           </Row>
-        </Col>
-      </Row>
+        </CardBody>
+      </Card>
     </Container>
   )
 }
