@@ -44,35 +44,40 @@ const App = () => {
   }
 
   return (
-    <>
-      <div className='App'>
-        <Label>IVA:</Label>
-        <Select value={iva} onChange={handleChangeSelect}>
-          <option value='10'>10%</option>
-          <option value='21'>21%</option>
-        </Select>
-        <Label>Precio con IVA:</Label>
-        <Input
-          type='number'
-          value={precioConIVA}
-          onChange={handlePrecioConIvaChange}
-          onFocus={handleFocusInput}
-          name='CONIVA'
-        />
-        <Label>Precio sin IVA:</Label>
-        <Input
-          type='number'
-          value={precioSinIVA}
-          onChange={handlePrecioSinIvaChange}
-          onFocus={handleFocusInput}
-          name='SINIVA'
-        />
-      </div>
-
-      <div className='App'>
+    <div>
+      <div className='container'>
         <img src={logo} className='App-logo' alt='logo' />
+        <div className='box'>
+          <Label>IVA:</Label>
+
+          <Label>Precio con IVA:</Label>
+
+          <Label>Precio sin IVA:</Label>
+        </div>
+        <div className='box'>
+          <Select value={iva} onChange={handleChangeSelect}>
+            <option value='10'>10%</option>
+            <option value='21'>21%</option>
+          </Select>
+
+          <Input
+            type='number'
+            value={precioConIVA}
+            onChange={handlePrecioConIvaChange}
+            onFocus={handleFocusInput}
+            name='CONIVA'
+          />
+
+          <Input
+            type='number'
+            value={precioSinIVA}
+            onChange={handlePrecioSinIvaChange}
+            onFocus={handleFocusInput}
+            name='SINIVA'
+          />
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 
