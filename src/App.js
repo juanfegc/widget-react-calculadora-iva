@@ -1,9 +1,6 @@
-import './App.css'
 import { useState } from 'react'
 import React from 'react'
-import { Select } from './components/Select'
-import { Input } from './components/Input'
-import { Label } from './components/Label'
+import { Container, Row, Col, Input, Label } from 'reactstrap'
 import logo from './calculator.png'
 
 const App = () => {
@@ -44,42 +41,56 @@ const App = () => {
   }
 
   return (
-    <div>
-      <div className='container'>
-        <div className='box'>
+    <Container>
+      <Row>
+        <Col>
           <img src={logo} className='App-logo' alt='logo' />
-        </div>
+        </Col>
+        <Col>
+          <Row>
+            <Col>
+              <Label>IVA:</Label>
+            </Col>
+            <Col>
+              <Input type='select' value={iva} onChange={handleChangeSelect}>
+                <option value='10'>10%</option>
+                <option value='21'>21%</option>
+              </Input>
+            </Col>
+          </Row>
 
-        <div className='box'>
-          <Label>IVA:</Label>
-          <Label>Precio con IVA:</Label>
-          <Label>Precio sin IVA:</Label>
-        </div>
+          <Row>
+            <Col>
+              <Label>Precio con IVA:</Label>
+            </Col>
+            <Col>
+              <Input
+                type='number'
+                value={precioConIVA}
+                onChange={handlePrecioConIvaChange}
+                onFocus={handleFocusInput}
+                name='CONIVA'
+              />
+            </Col>
+          </Row>
 
-        <div className='box'>
-          <Select value={iva} onChange={handleChangeSelect}>
-            <option value='10'>10%</option>
-            <option value='21'>21%</option>
-          </Select>
-
-          <Input
-            type='number'
-            value={precioConIVA}
-            onChange={handlePrecioConIvaChange}
-            onFocus={handleFocusInput}
-            name='CONIVA'
-          />
-
-          <Input
-            type='number'
-            value={precioSinIVA}
-            onChange={handlePrecioSinIvaChange}
-            onFocus={handleFocusInput}
-            name='SINIVA'
-          />
-        </div>
-      </div>
-    </div>
+          <Row>
+            <Col>
+              <Label>Precio sin IVA:</Label>
+            </Col>
+            <Col>
+              <Input
+                type='number'
+                value={precioSinIVA}
+                onChange={handlePrecioSinIvaChange}
+                onFocus={handleFocusInput}
+                name='SINIVA'
+              />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 
